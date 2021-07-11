@@ -38,7 +38,7 @@ def get_my_ipv6_addr(interface):
                         myip=ifaces[0]
             return myip
         except:
-            print "The interface",interface,"does not exist. Please, try again."
+            print("The interface",interface,"does not exist. Please, try again.")
             exit(0)
 
 ######################################
@@ -50,7 +50,7 @@ def get_my_ipv4_addr(interface):
             myip=scapy.arch.get_if_addr(interface)
             return myip
         except:
-            print "The interface",interface,"does not exist. Please, try again."
+            print("The interface",interface,"does not exist. Please, try again.")
             exit(0)
 
 ##########################
@@ -511,7 +511,7 @@ def ext_handler(packets,queue,unidns,show_ttl,print_res,dos_ttl,conflict,ttl,int
 		                queue.put(res)
 				block = block.payload
                   else:
-                    print "not a DNS Query", dns.summary()
+                    print(not a DNS Query", dns.summary())
         #except Exception,e:
         #    print "Exception",str(e),packets.summary()
 
@@ -677,7 +677,7 @@ def main():
             myset=set(results)
             results=list(myset)
             results.sort()
-            print "\n*********************************************RESULTS*********************************************"
+            print(\n*********************************************RESULTS*********************************************")
             for r in results:
                  print r
             exit(0)
@@ -749,11 +749,11 @@ def main():
 	            myfilter = "udp and port 5353"
                 print "Sniffer filter is:",myfilter
 	        print "I will sniff for",values.sniffer_timeout,"seconds, unless interrupted by Ctrl-C"
-                print "Press Ctrl-C to exit"
+                print("Press Ctrl-C to exit")
                 try:
 	            Sniffer(myfilter, values.interface, float(values.sniffer_timeout),q,values.dns,values.show_ttl, values.dos_ttl, values.conflict, values.ttl,values.d4, values.d6, values.target_mac, values.auto_fake_responses,source_IPv6, source_IPv4, target_mac1, target_mac2,source_mac,values.hlimit,values.workstation,values.printer,values.googlecast,values.airtv,values.flood,values.flooding_timeout,values.flooding_interval,values.v4,values.v6)
 	        except KeyboardInterrupt:
-		    print "Exiting on user's request"
+		    print(Exiting on user's request")
                     exit(0)
                 exit(0)
 	    myfilter = "not ether src " + source_mac + " and udp and port 5353"
